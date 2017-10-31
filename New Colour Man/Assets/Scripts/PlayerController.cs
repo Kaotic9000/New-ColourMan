@@ -8,13 +8,14 @@ public class PlayerController : MonoBehaviour {
 	public float maxSpeed = 200;
 	public float speed = 10;
 	public float jumpSpeed = 10;
-	public Vector3 jump;
 
+
+	private Vector3 jump;
 	private bool isGrounded;
 	// Use this for initialization
 	void Start () {
 		RB = GetComponent<Rigidbody> ();
-		jump = new Vector3(0.0f, 35.0f, 0.0f);
+		jump = new Vector3(0.0f, 25.0f+jumpSpeed, 0.0f);
 
 	}
 
