@@ -360,6 +360,8 @@ MonoBehaviour:
   RB: {fileID: 360534455}
   maxSpeed: 200
   speed: 10
+  jumpSpeed: 10
+  jump: {x: 0, y: 20, z: 0}
 --- !u!1 &401142638 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100034, guid: d7152554fe90b98498b805ac47ee3ffa, type: 3}
@@ -614,7 +616,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
