@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		RB = GetComponent<Rigidbody> ();
-		jump = new Vector3(0.0f, 20.0f, 0.0f);
+		jump = new Vector3(0.0f, 35.0f, 0.0f);
 
 	}
 
@@ -30,6 +30,9 @@ public class PlayerController : MonoBehaviour {
 			RB.AddForce (Vector3.left * 50*speed);
 			//transform.position = transform.position + Vector3.right*Speed;
 		}
+		if (RB.velocity.magnitude > maxSpeed) {
+			RB.velocity = RB.velocity.normalized * maxSpeed;
+		}
 		if (Input.GetKey ("space")){
 			//RB.AddForce (Vector3.up * jumpSpeed);
 			if (isGrounded) {
@@ -40,9 +43,9 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 	void FixedUpdate ()
+
+
 	{
-
-
 
 	}
 	void OnTriggerEnter(Collider other)
