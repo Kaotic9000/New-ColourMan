@@ -11,14 +11,14 @@ public class CameraController : MonoBehaviour {
 	public float rotationSpeed = 1;
 
 	private Vector3 offset;         //Private variable to store the offset distance between the player and camera
-	private int count;	
+	private int numberofstars;	
 
 	// Use this for initialization
 	void Start () {
 		//Calculate and store the offset value by getting the distance between the player's position and camera's position.
 		offset = transform.position - player.transform.position;
-		count = 3;
-		setCountText ();
+		numberofstars = GameObject.FindGameObjectsWithTag("Star").Length; ; ;
+		updateText ();
 		doorText.text = "The door is shut";
 	}
 	
@@ -26,18 +26,20 @@ public class CameraController : MonoBehaviour {
 	void LateUpdate () {
 		// Set the position of the camera's transform to be the same as the player's, but offset by the calculated offset distance.
 		transform.position = player.transform.position + offset;
-
+        updateText();
+        
 	}
 
-void setCountText(){
-	countText.text = "Stars left: " + count.ToString ();
-		if (count >= 1) {
+
+    void updateText(){
+        int count = countStarts();
+	countText.text = "Stars left: " + count;
+		if (numberofstars > count) {
 			doorText.text = "The door is open";
 		}
 }
-	void countStarts(){
-		count = count - 1;
-		setCountText ();
+	int countStarts(){
+        return GameObject.FindGameObjectsWithTag("Star").Length; ;
 
 }
 }
