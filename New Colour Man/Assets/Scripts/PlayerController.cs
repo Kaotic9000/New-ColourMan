@@ -1,30 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-
-public class RagdollController : MonoBehaviour {
+public class PlayerController : MonoBehaviour {
 
 	public float speed = 10;
 	public float maxSpeed = 200;
 	public float upSpeed = 0.0015f;
-	public Text countText;
-	public Text doorText;
+
 	public Rigidbody RB;
 
 
-	private int count;	
 	private bool isGrounded;
 
 	// Use this for initialization
 	void Start () {
 
-		count = 3;
-		setCountText ();
-		doorText.text = "The door is shut";
+
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 		if(Input.GetKey ("d"))
@@ -48,28 +42,19 @@ public class RagdollController : MonoBehaviour {
 	{
 		GetComponent<Rigidbody>().AddForce (Vector3.up * upSpeed);
 
-		//if(RB.velocity.magnitude > maxSpeed)
-		//{
-			//RB.velocity = RB.velocity.normalized * maxSpeed;
-		//}
-
-	}
-	void OnTriggerEnter(Collider other) 
-	{
-		if (other.gameObject.CompareTag ("Star"))
+		if(RB.velocity.magnitude > maxSpeed)
 		{
-			other.gameObject.SetActive (false);
-			count = count - 1;
-			setCountText ();
+			RB.velocity = RB.velocity.normalized * maxSpeed;
 		}
-	}
-	void setCountText(){
-		countText.text = "Stars left: " + count.ToString ();
-		if (count >= 1) {
-			doorText.text = "The door is open";
-		}
-	}
 
+	}
+	void OnTriggerEnter(Collider other)
+	{
+		if (other.gameObject.CompareTag ("Star")) {
+			other.gameObject.SetActive (false);
+		}
+
+	}
 	void OnCollisionStay(Collision coll){
 		isGrounded = true;
 	}
