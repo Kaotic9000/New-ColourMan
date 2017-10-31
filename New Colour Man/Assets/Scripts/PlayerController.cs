@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour {
 	public Rigidbody RB;
 	public float maxSpeed = 200;
 	public float speed = 10;
+	public float jumpSpeed = 10;
 
 	private bool isGrounded;
 	// Use this for initialization
@@ -28,7 +29,7 @@ public class PlayerController : MonoBehaviour {
 			//transform.position = transform.position + Vector3.right*Speed;
 		}
 		if (Input.GetKey ("space")){
-			
+			RB.AddForce (Vector3.up * jumpSpeed);
 		}
 	}
 	void FixedUpdate ()
