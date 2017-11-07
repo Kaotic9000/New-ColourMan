@@ -9,6 +9,9 @@ public class PlayerController : MonoBehaviour {
 	public float speed = 10;
 	public float jumpSpeed = 10;
 
+    public bool isGreen = false;
+
+    public Transform pref;
 
     public Material Green;
 
@@ -61,6 +64,7 @@ public class PlayerController : MonoBehaviour {
         if (other.gameObject.CompareTag("Green puddle"))
         {
             GameObject.Find("Cube").GetComponent<Renderer>().material = Green;
+            GameObject.Find("Middle_Spine").tag = "GreenPlayer";
         }
 
         if (other.gameObject.CompareTag("floor")){
