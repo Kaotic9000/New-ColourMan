@@ -9,6 +9,7 @@ public class CameraController : MonoBehaviour {
 	public Text countText;
 	public Text doorText;
 	public float rotationSpeed = 1;
+    public int cameraheight=7;
 
 	private Vector3 offset;         //Private variable to store the offset distance between the player and camera
 	private int numberofstars;	
@@ -16,10 +17,11 @@ public class CameraController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         player = GameObject.FindGameObjectWithTag("Player");
-        
-		//Calculate and store the offset value by getting the distance between the player's position and camera's position.
-		offset = transform.position - player.transform.position;
-		numberofstars = GameObject.FindGameObjectsWithTag("Star").Length; ; ;
+
+        //Calculate and store the offset value by getting the distance between the player's position and camera's position.
+        offset = new Vector3(0, cameraheight, transform.position.z+player.transform.position.z);
+        print("" + offset.x + " " + offset.y + " " + offset.z);
+        numberofstars = GameObject.FindGameObjectsWithTag("Star").Length;
 		updateText ();
 		doorText.text = "The door is shut";
 	}
