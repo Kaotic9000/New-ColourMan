@@ -13,6 +13,7 @@ TagManager:
   - Red wall
   - Green wall
   - Star
+  - Kill
   layers:
   - Default
   - TransparentFX

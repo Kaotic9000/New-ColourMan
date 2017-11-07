@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 95719843826579830}
   - component: {fileID: 65259307288551250}
   m_Layer: 0
-  m_Name: Red puddle 1
+  m_Name: Red puddle
   m_TagString: Red puddle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
