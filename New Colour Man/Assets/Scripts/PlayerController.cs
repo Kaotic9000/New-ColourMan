@@ -10,10 +10,10 @@ public class PlayerController : MonoBehaviour {
 	public float jumpSpeed = 10;
 
     public bool isGreen = false;
-
-    public Transform pref;
-
+    
     public Material Green;
+    public Material Blue;
+    public Material Red;
 
 
     private Vector3 jump;
@@ -65,6 +65,39 @@ public class PlayerController : MonoBehaviour {
         {
             GameObject.Find("Cube").GetComponent<Renderer>().material = Green;
             GameObject.Find("Middle_Spine").tag = "GreenPlayer";
+
+            GameObject[] gos;
+            gos = GameObject.FindGameObjectsWithTag("Green wall");
+            foreach (GameObject go in gos)
+            {
+                go.transform.GetComponent<Collider>().isTrigger = true;
+            }
+        }
+
+        if (other.gameObject.CompareTag("Blue puddle"))
+        {
+            GameObject.Find("Cube").GetComponent<Renderer>().material = Blue;
+            GameObject.Find("Middle_Spine").tag = "BluePlayer";
+
+            GameObject[] gos;
+            gos = GameObject.FindGameObjectsWithTag("Blue wall");
+            foreach (GameObject go in gos)
+            {
+                go.transform.GetComponent<Collider>().isTrigger = true;
+            }
+        }
+
+        if (other.gameObject.CompareTag("Red puddle"))
+        {
+            GameObject.Find("Cube").GetComponent<Renderer>().material = Red;
+            GameObject.Find("Middle_Spine").tag = "RedPlayer";
+
+            GameObject[] gos;
+            gos = GameObject.FindGameObjectsWithTag("Red wall");
+            foreach (GameObject go in gos)
+            {
+                go.transform.GetComponent<Collider>().isTrigger = true;
+            }
         }
 
         if (other.gameObject.CompareTag("Kill"))
