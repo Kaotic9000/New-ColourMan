@@ -74,6 +74,16 @@ public class PlayerController : MonoBehaviour {
             {
                 go.transform.GetComponent<Collider>().isTrigger = true;
             }
+            gos = GameObject.FindGameObjectsWithTag("Red wall");
+            foreach (GameObject go in gos)
+            {
+                go.transform.GetComponent<Collider>().isTrigger = false;
+            }
+            gos = GameObject.FindGameObjectsWithTag("Blue wall");
+            foreach (GameObject go in gos)
+            {
+                go.transform.GetComponent<Collider>().isTrigger = false;
+            }
         }
 
         if (other.gameObject.CompareTag("Blue puddle"))
@@ -87,6 +97,16 @@ public class PlayerController : MonoBehaviour {
             {
                 go.transform.GetComponent<Collider>().isTrigger = true;
             }
+            gos = GameObject.FindGameObjectsWithTag("Green wall");
+            foreach (GameObject go in gos)
+            {
+                go.transform.GetComponent<Collider>().isTrigger = false;
+            }
+            gos = GameObject.FindGameObjectsWithTag("Red wall");
+            foreach (GameObject go in gos)
+            {
+                go.transform.GetComponent<Collider>().isTrigger = false;
+            }
         }
 
         if (other.gameObject.CompareTag("Red puddle"))
@@ -99,6 +119,16 @@ public class PlayerController : MonoBehaviour {
             foreach (GameObject go in gos)
             {
                 go.transform.GetComponent<Collider>().isTrigger = true;
+            }
+            gos = GameObject.FindGameObjectsWithTag("Blue wall");
+            foreach (GameObject go in gos)
+            {
+                go.transform.GetComponent<Collider>().isTrigger = false;
+            }
+            gos = GameObject.FindGameObjectsWithTag("Green wall");
+            foreach (GameObject go in gos)
+            {
+                go.transform.GetComponent<Collider>().isTrigger = false;
             }
         }
 
