@@ -67,6 +67,12 @@ public class PlayerController : MonoBehaviour {
             GameObject.Find("Middle_Spine").tag = "GreenPlayer";
         }
 
+        if (other.gameObject.CompareTag("Kill"))
+        {
+            Destroy(GameObject.Find("Ragdoll"));
+            
+        }
+
         if (other.gameObject.CompareTag("floor")){
 			isGrounded = true;
 		}
