@@ -25,7 +25,7 @@ public class BallController : MonoBehaviour {
 	void Update () {
 		if (count > 100 && force > 2) {
 			force = force - 0.01f;
-			print ("Force: "+force);
+			//print ("Force: "+force);
 		}
 		count++;
 		x = transform.position.x;
@@ -41,8 +41,4 @@ public class BallController : MonoBehaviour {
 				goingR = true;
 			}
 		}
-	
-
 	}
-
-

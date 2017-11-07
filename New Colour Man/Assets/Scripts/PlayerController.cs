@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour {
 	public float maxSpeed = 200;
 	public float speed = 10;
 	public float jumpSpeed = 10;
+	public Transform prefab;
+
 
     public bool isGreen = false;
     
@@ -103,7 +105,9 @@ public class PlayerController : MonoBehaviour {
         if (other.gameObject.CompareTag("Kill"))
         {
             Destroy(GameObject.Find("Ragdoll"));
-            
+			//TODO: mangler en krop som falder over
+
+
         }
 
         if (other.gameObject.CompareTag("floor")){

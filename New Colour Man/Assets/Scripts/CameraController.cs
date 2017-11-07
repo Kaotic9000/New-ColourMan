@@ -16,35 +16,37 @@ public class CameraController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        player = GameObject.FindGameObjectWithTag("Player");
-
-        //Calculate and store the offset value by getting the distance between the player's position and camera's position.
-        offset = new Vector3(0, cameraheight, transform.position.z+player.transform.position.z);
-        print("" + offset.x + " " + offset.y + " " + offset.z);
+		findGO ();
         numberofstars = GameObject.FindGameObjectsWithTag("Star").Length;
-		updateText ();
-		doorText.text = "The door is shut";
+		//Calculate and store the offset value by getting the distance between the player's position and camera's position.
+		//print("" + offset.x + " " + offset.y + " " + offset.z);
+		offset = new Vector3(0, cameraheight, transform.position.z+player.transform.position.z);
+		updateText();
 	}
-	
+
 	// Update is called once per frame
 	void LateUpdate () {
+		findGO ();
         // Set the position of the camera's transform to be the same as the player's, but offset by the calculated offset distance.
-        player = GameObject.FindGameObjectWithTag("Player"); 
         transform.position = player.transform.position + offset;
-        updateText();
-        
+        updateText();  
+
 	}
 
+	void findGO(){
+		player = GameObject.Find("Middle_Spine");
+	}
 
     void updateText(){
         int count = countStarts();
 	countText.text = "Stars left: " + count;
 		if (numberofstars > count) {
 			doorText.text = "The door is open";
+		} else {
+			doorText.text = "The door is shut";
 		}
 }
 	int countStarts(){
         return GameObject.FindGameObjectsWithTag("Star").Length; ;
-
 }
 }
