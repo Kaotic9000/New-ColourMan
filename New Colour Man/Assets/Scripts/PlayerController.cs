@@ -9,8 +9,14 @@ public class PlayerController : MonoBehaviour {
 	public float speed = 10;
 	public float jumpSpeed = 10;
 
+    public bool isGreen = false;
 
-	private Vector3 jump;
+    public Transform pref;
+
+    public Material Green;
+
+
+    private Vector3 jump;
 	private bool isGrounded;
 	// Use this for initialization
 	void Start () {
@@ -54,7 +60,14 @@ public class PlayerController : MonoBehaviour {
 		if (other.gameObject.CompareTag ("Star")) {
 			other.gameObject.SetActive (false);
 		}
-		if(other.gameObject.CompareTag("floor")){
+
+        if (other.gameObject.CompareTag("Green puddle"))
+        {
+            GameObject.Find("Cube").GetComponent<Renderer>().material = Green;
+            GameObject.Find("Middle_Spine").tag = "GreenPlayer";
+        }
+
+        if (other.gameObject.CompareTag("floor")){
 			isGrounded = true;
 		}
 	}
