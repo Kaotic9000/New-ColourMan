@@ -85,7 +85,7 @@ GameObject:
   - component: {fileID: 95279641961398662}
   - component: {fileID: 54844555501246896}
   m_Layer: 0
-  m_Name: Ragdoll (1)
+  m_Name: Ragdoll
   m_TagString: GreenPlayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
