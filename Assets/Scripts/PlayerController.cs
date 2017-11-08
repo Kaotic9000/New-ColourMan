@@ -47,104 +47,68 @@ public class PlayerController : MonoBehaviour {
 				RB.AddForce (jump * jumpSpeed, ForceMode.Impulse);
 			}
 			isGrounded = false;
-
 		}
 	}
-	void FixedUpdate ()
 
-
-	{
-
-	}
 	void OnTriggerEnter(Collider other)
 	{
+		//removes the star when hit by the player
 		if (other.gameObject.CompareTag ("Star")) {
 			other.gameObject.SetActive (false);
 		}
-
+		//turns the player green and green walls trigers active
         if (other.gameObject.CompareTag("Green puddle"))
         {
-            GameObject.Find("Cube").GetComponent<Renderer>().material = Green;
-            GameObject.Find("Middle_Spine").tag = "GreenPlayer";
-
-            GameObject[] gos;
-            gos = GameObject.FindGameObjectsWithTag("Green wall");
-            foreach (GameObject go in gos)
-            {
-                go.transform.GetComponent<Collider>().isTrigger = true;
-            }
-            gos = GameObject.FindGameObjectsWithTag("Red wall");
-            foreach (GameObject go in gos)
-            {
-                go.transform.GetComponent<Collider>().isTrigger = false;
-            }
-            gos = GameObject.FindGameObjectsWithTag("Blue wall");
-            foreach (GameObject go in gos)
-            {
-                go.transform.GetComponent<Collider>().isTrigger = false;
-            }
+			setPlayerColour (Green,"GreenPlayer");
+			setWallTrigger (true,false,false);
         }
-
+		//turns the player red and red walls trigers active
+		if (other.gameObject.CompareTag("Red puddle"))
+		{
+			setPlayerColour (Red,"RedPlayer");
+			setWallTrigger (false,true,false);
+		}
+		//turns the player blue and blue walls trigers active
         if (other.gameObject.CompareTag("Blue puddle"))
         {
-            GameObject.Find("Cube").GetComponent<Renderer>().material = Blue;
-            GameObject.Find("Middle_Spine").tag = "BluePlayer";
-
-            GameObject[] gos;
-            gos = GameObject.FindGameObjectsWithTag("Blue wall");
-            foreach (GameObject go in gos)
-            {
-                go.transform.GetComponent<Collider>().isTrigger = true;
-            }
-            gos = GameObject.FindGameObjectsWithTag("Green wall");
-            foreach (GameObject go in gos)
-            {
-                go.transform.GetComponent<Collider>().isTrigger = false;
-            }
-            gos = GameObject.FindGameObjectsWithTag("Red wall");
-            foreach (GameObject go in gos)
-            {
-                go.transform.GetComponent<Collider>().isTrigger = false;
-            }
+			setPlayerColour (Blue,"BluePlayer");
+			setWallTrigger (false, false, true);
         }
-
-        if (other.gameObject.CompareTag("Red puddle"))
-        {
-            GameObject.Find("Cube").GetComponent<Renderer>().material = Red;
-            GameObject.Find("Middle_Spine").tag = "RedPlayer";
-
-            GameObject[] gos;
-            gos = GameObject.FindGameObjectsWithTag("Red wall");
-            foreach (GameObject go in gos)
-            {
-                go.transform.GetComponent<Collider>().isTrigger = true;
-            }
-            gos = GameObject.FindGameObjectsWithTag("Blue wall");
-            foreach (GameObject go in gos)
-            {
-                go.transform.GetComponent<Collider>().isTrigger = false;
-            }
-            gos = GameObject.FindGameObjectsWithTag("Green wall");
-            foreach (GameObject go in gos)
-            {
-                go.transform.GetComponent<Collider>().isTrigger = false;
-            }
-        }
-
+		//spawns a ragdoll and removes the player object to simulate death
         if (other.gameObject.CompareTag("Kill"))
         {
 
-            Destroy(GameObject.Find("Ragdoll"));
-			prefab = Instantiate (prefab,transform.position,Quaternion.Euler(0,90,0)) as GameObject;
-
-
-			//TODO: mangler en krop som falder over
-
+			Destroy(GameObject.Find("Ragdoll"));
+			//TODO: Skal laves på en lidt bedre måde
 
         }
 
         if (other.gameObject.CompareTag("floor")){
 			isGrounded = true;
+		}
+	}
+
+	private void setPlayerColour(Material material, string playerTag){
+		GameObject.Find("Cube").GetComponent<Renderer>().material = material;
+		GameObject.Find("Middle_Spine").tag = playerTag;
+	}
+
+	private void setWallTrigger(bool green, bool red, bool blue){
+		GameObject[] gos;
+		gos = GameObject.FindGameObjectsWithTag("Green wall");
+		foreach (GameObject go in gos)
+		{
+			go.transform.GetComponent<Collider>().isTrigger = green;
+		}
+		gos = GameObject.FindGameObjectsWithTag("Red wall");
+		foreach (GameObject go in gos)
+		{
+			go.transform.GetComponent<Collider>().isTrigger = red;
+		}
+		gos = GameObject.FindGameObjectsWithTag("Blue wall");
+		foreach (GameObject go in gos)
+		{
+			go.transform.GetComponent<Collider>().isTrigger = blue;
 		}
 	}
 }

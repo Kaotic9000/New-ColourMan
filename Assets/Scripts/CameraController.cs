@@ -28,12 +28,8 @@ public class CameraController : MonoBehaviour {
 	void LateUpdate () {
 		findGO ();
         // Set the position of the camera's transform to be the same as the player's, but offset by the calculated offset distance.
-		if (player.transform.position != null) {
 			transform.position = player.transform.position + offset;
-		}
 			updateText ();  
-		
-
 	}
 
 	void findGO(){
@@ -50,6 +46,6 @@ public class CameraController : MonoBehaviour {
 		}
 }
 	int countStarts(){
-        return GameObject.FindGameObjectsWithTag("Star").Length; ;
+        return GameObject.FindGameObjectsWithTag("Star").Length;
 }
 }

@@ -13,7 +13,8 @@ public class WallController : MonoBehaviour {
 	void Update () {
 		
 	}
-
+	//DENNE KODE FÅR GRØN MAND TIL AT GÅ IGENNEM ALLE FARVER
+	/*
     void OnCollisionEnter(Collision collision)
     {
         if (collision.transform.tag == "GreenPlayer" && !transform.GetComponent<Collider>().isTrigger)
@@ -21,4 +22,5 @@ public class WallController : MonoBehaviour {
             transform.GetComponent<Collider>().isTrigger = true;
         }
     }
+    */
 }

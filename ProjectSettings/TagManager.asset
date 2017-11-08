@@ -14,6 +14,8 @@ TagManager:
   - Green wall
   - Star
   - Kill
+  - BluePlayer
+  - RedPlayer
   layers:
   - Default
   - TransparentFX
