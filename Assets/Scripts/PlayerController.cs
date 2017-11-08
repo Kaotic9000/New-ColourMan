@@ -8,12 +8,14 @@ public class PlayerController : MonoBehaviour {
 	public float maxSpeed = 200;
 	public float speed = 10;
 	public float jumpSpeed = 10;
-    private Renderer rend;
+	public GameObject prefab;
+
+
     public bool isGreen = false;
-
-    public Transform pref;
-
+    
     public Material Green;
+    public Material Blue;
+    public Material Red;
 
 
     private Vector3 jump;
@@ -21,16 +23,12 @@ public class PlayerController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		RB = GetComponent<Rigidbody> ();
-        rend = GameObject.Find("Cube").GetComponent<Renderer>();
-
-        jump = new Vector3(0.0f, 25.0f+jumpSpeed, 0.0f);
-
+		jump = new Vector3(0.0f, 25.0f+jumpSpeed, 0.0f);
 	}
 
 	// Update is called once per frame
 	void Update () {
-
-        if (Input.GetKey ("d"))
+		if(Input.GetKey ("d"))
 		{
 			RB.AddForce (Vector3.right * 50*speed);
 			//transform.position = transform.position + Vector3.left*Speed ;
@@ -49,27 +47,68 @@ public class PlayerController : MonoBehaviour {
 				RB.AddForce (jump * jumpSpeed, ForceMode.Impulse);
 			}
 			isGrounded = false;
-
 		}
 	}
-	void FixedUpdate ()
 
-
-	{
-
-	}
 	void OnTriggerEnter(Collider other)
 	{
+		//removes the star when hit by the player
 		if (other.gameObject.CompareTag ("Star")) {
 			other.gameObject.SetActive (false);
 		}
-        if (other.gameObject.CompareTag("Puddle"))
+		//turns the player green and green walls trigers active
+        if (other.gameObject.CompareTag("Green puddle"))
         {
-            rend.sharedMaterial = other.gameObject.GetComponent<Renderer>().sharedMaterial;
+			setPlayerColour (Green,"GreenPlayer");
+			setWallTrigger (true,false,false);
+        }
+		//turns the player red and red walls trigers active
+		if (other.gameObject.CompareTag("Red puddle"))
+		{
+			setPlayerColour (Red,"RedPlayer");
+			setWallTrigger (false,true,false);
+		}
+		//turns the player blue and blue walls trigers active
+        if (other.gameObject.CompareTag("Blue puddle"))
+        {
+			setPlayerColour (Blue,"BluePlayer");
+			setWallTrigger (false, false, true);
+        }
+		//spawns a ragdoll and removes the player object to simulate death
+        if (other.gameObject.CompareTag("Kill"))
+        {
+
+			Destroy(GameObject.Find("Ragdoll"));
+			//TODO: Skal laves på en lidt bedre måde
+
         }
 
         if (other.gameObject.CompareTag("floor")){
 			isGrounded = true;
+		}
+	}
+
+	private void setPlayerColour(Material material, string playerTag){
+		GameObject.Find("Cube").GetComponent<Renderer>().material = material;
+		GameObject.Find("Middle_Spine").tag = playerTag;
+	}
+
+	private void setWallTrigger(bool green, bool red, bool blue){
+		GameObject[] gos;
+		gos = GameObject.FindGameObjectsWithTag("Green wall");
+		foreach (GameObject go in gos)
+		{
+			go.transform.GetComponent<Collider>().isTrigger = green;
+		}
+		gos = GameObject.FindGameObjectsWithTag("Red wall");
+		foreach (GameObject go in gos)
+		{
+			go.transform.GetComponent<Collider>().isTrigger = red;
+		}
+		gos = GameObject.FindGameObjectsWithTag("Blue wall");
+		foreach (GameObject go in gos)
+		{
+			go.transform.GetComponent<Collider>().isTrigger = blue;
 		}
 	}
 }

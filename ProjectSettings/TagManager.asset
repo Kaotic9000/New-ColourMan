@@ -4,16 +4,18 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Star
-  - floor
-  - Green wall
-  - Green puddle
-  - GreenPlayer
   - Red puddle
+  - Green puddle
   - Blue wall
   - Blue puddle
+  - floor
+  - GreenPlayer
   - Red wall
-  - Puddle
+  - Green wall
+  - Star
+  - Kill
+  - BluePlayer
+  - RedPlayer
   layers:
   - Default
   - TransparentFX
