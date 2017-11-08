@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour {
 		RB = GetComponent<Rigidbody> ();
 		jump = new Vector3(0.0f, 25.0f+jumpSpeed, 0.0f);
 	}
-
+    
 	// Update is called once per frame
 	void Update () {
 		if(Input.GetKey ("d"))
