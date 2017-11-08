@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour {
 	public float maxSpeed = 200;
 	public float speed = 10;
 	public float jumpSpeed = 10;
-	public Transform prefab;
+	public GameObject prefab;
 
 
     public bool isGreen = false;
@@ -24,7 +24,6 @@ public class PlayerController : MonoBehaviour {
 	void Start () {
 		RB = GetComponent<Rigidbody> ();
 		jump = new Vector3(0.0f, 25.0f+jumpSpeed, 0.0f);
-
 	}
 
 	// Update is called once per frame
@@ -134,7 +133,11 @@ public class PlayerController : MonoBehaviour {
 
         if (other.gameObject.CompareTag("Kill"))
         {
+
             Destroy(GameObject.Find("Ragdoll"));
+			prefab = Instantiate (prefab,transform.position,Quaternion.Euler(0,90,0)) as GameObject;
+
+
 			//TODO: mangler en krop som falder over
 
 
