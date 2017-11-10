@@ -11,9 +11,6 @@ public class PlayerController : MonoBehaviour {
 	public float jumpSpeed = 10;
 	public GameObject corpseprefab;
 
-
-    public bool isGreen = false;
-    
     public Material Green;
     public Material Blue;
     public Material Red;
