@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour {
 
@@ -9,9 +10,8 @@ public class GameController : MonoBehaviour {
 	public float startWait;
 	//public prefab prefab;
 
-	public GUIText scoreText;
-	public GUIText restartText;
-	public GUIText gameOverText;
+	public Text scoreText;
+	public Text gameOverText;
 
 	private bool gameOver;
 	private bool restart;
@@ -20,16 +20,21 @@ public class GameController : MonoBehaviour {
 	void Start ()
 	{
 		gameOver = false;
-		restart = false;
-		restartText.text = "";
+//		restart = false;
 		gameOverText.text = "";
 		score = 0;
 		UpdateScore ();
 	}
 
-	void Update ()
-	{
-		if (restart)
+    void Update()
+    {
+        score = 0;
+        UpdateScore();
+
+        if (!gameOver) { 
+        if (GameObject.FindGameObjectsWithTag("Player").Length < 1) GameOver();
+            }
+		if (gameOver)
 		{
 			if (Input.GetKeyDown (KeyCode.R))
 			{
@@ -41,17 +46,16 @@ public class GameController : MonoBehaviour {
 	void SpawnWaves ()
 	//IEnumerator
 	{
-		while (true)
-		{
-			Vector3 spawnPosition = new Vector3 (spawnValues.x, spawnValues.y, spawnValues.z);
+
+		
+			//Vector3 spawnPosition = new Vector3 (spawnValues.x, spawnValues.y, spawnValues.z);
 			//Instantiate (prefab, spawnPosition, Quaternion.identity);
-			if (gameOver)
-			{
-				restartText.text = "Press 'R' for Restart";
-				restart = true;
-				break;
-			}
-		}
+			//if (gameOver)
+			//{
+			//	restartText.text = "Press 'R' for Restart";
+		    //	restart = true;
+			
+	//	}
 	}
 
 	public void AddScore (int newScoreValue)
@@ -67,7 +71,7 @@ public class GameController : MonoBehaviour {
 
 	public void GameOver ()
 	{
-		gameOverText.text = "Game Over!";
+		gameOverText.text = "     Game Over!\n\n Press 'R' for Restart";
 		gameOver = true;
 	}
 }

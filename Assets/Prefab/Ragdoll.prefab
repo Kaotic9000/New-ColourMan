@@ -68,7 +68,7 @@ GameObject:
   - component: {fileID: 95319653079504660}
   - component: {fileID: 54911536681403702}
   m_Layer: 0
-  m_Name: Ragdoll 1
+  m_Name: Ragdoll
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -988,11 +988,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 063ef3df4de98b34f9cfa01bc3b6544d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RB: {fileID: 54860514290900328}
   maxSpeed: 9
   speed: 8
   jumpSpeed: 10
-  prefab: {fileID: 1154358528033696, guid: 649766389d288a441bf81ca0bc62a5b1, type: 2}
+  corpseprefab: {fileID: 0}
   isGreen: 0
   Green: {fileID: 2100000, guid: a81b624d8e7bf5a4091c3949b4c85746, type: 2}
   Blue: {fileID: 2100000, guid: b68b6fd067ee4b94a9ce2a3fcf3067b3, type: 2}
@@ -1135,7 +1134,6 @@ SkinnedMeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -1151,7 +1149,6 @@ SkinnedMeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5

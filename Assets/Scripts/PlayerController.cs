@@ -81,10 +81,11 @@ public class PlayerController : MonoBehaviour {
            Vector3 deathPosition= transform.position;
             Quaternion deathRotation = transform.rotation;
             Material corpsecolour = GameObject.Find("Cube").GetComponent<Renderer>().material;
+            Destroy(GameObject.Find("Ragdoll"));
             GameObject corpse = Instantiate(corpseprefab, deathPosition,deathRotation);
             GameObject.Find("DeadCube").GetComponent<Renderer>().sharedMaterial = corpsecolour;
 
-            Destroy(GameObject.Find("Ragdoll"));
+            
 			//TODO: Skal laves på en lidt bedre måde
 
         }
