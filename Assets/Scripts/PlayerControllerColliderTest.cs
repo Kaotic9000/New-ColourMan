@@ -4,20 +4,17 @@ using UnityEngine;
 
 public class PlayerControllerColliderTest: MonoBehaviour {
 
-	public Rigidbody RB;
-	public float maxSpeed = 200;
+	private Rigidbody RB;
+    private Renderer rend;
+    private Vector3 jump;
+    private bool isGrounded;
+    public float maxSpeed = 200;
 	public float speed = 10;
 	public float jumpSpeed = 10;
-
-    private Renderer rend;
-    public bool isGreen = false;
-
-    public Transform pref;
-  
+    public GameObject corpseprefab;
 
 
-    private Vector3 jump;
-	private bool isGrounded;
+
 	// Use this for initialization
 	void Start () {
 		RB = GetComponent<Rigidbody> ();
@@ -83,7 +80,18 @@ public class PlayerControllerColliderTest: MonoBehaviour {
         if (other.gameObject.CompareTag("floor")){
 			isGrounded = true;
 		}
-	}
+        if (other.gameObject.CompareTag("Kill"))
+        {
+            Vector3 deathPosition = transform.position;
+            Quaternion deathRotation = transform.rotation;
+           Material corpsecolour = rend.sharedMaterial;
+            Destroy(GameObject.Find("Ragdoll"));
+            GameObject corpse = Instantiate(corpseprefab, deathPosition, deathRotation);
+            GameObject.Find("DeadCube").GetComponent<Renderer>().sharedMaterial = corpsecolour;
+            //TODO: Skal laves på en lidt bedre måde
+
+        }
+    }
     void OnTriggerExit(Collider other)
     {
         if (other.gameObject.CompareTag("ColourWall"))

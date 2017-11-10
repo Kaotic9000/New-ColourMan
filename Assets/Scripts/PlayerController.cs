@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
-	public Rigidbody RB;
+
+	private Rigidbody RB;
 	public float maxSpeed = 200;
 	public float speed = 10;
 	public float jumpSpeed = 10;
-	public GameObject prefab;
+	public GameObject corpseprefab;
 
 
     public bool isGreen = false;
@@ -77,8 +78,13 @@ public class PlayerController : MonoBehaviour {
 		//spawns a ragdoll and removes the player object to simulate death
         if (other.gameObject.CompareTag("Kill"))
         {
+           Vector3 deathPosition= transform.position;
+            Quaternion deathRotation = transform.rotation;
+            Material corpsecolour = GameObject.Find("Cube").GetComponent<Renderer>().material;
+            GameObject corpse = Instantiate(corpseprefab, deathPosition,deathRotation);
+            GameObject.Find("DeadCube").GetComponent<Renderer>().sharedMaterial = corpsecolour;
 
-			Destroy(GameObject.Find("Ragdoll"));
+            Destroy(GameObject.Find("Ragdoll"));
 			//TODO: Skal laves på en lidt bedre måde
 
         }

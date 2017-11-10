@@ -16,6 +16,8 @@ TagManager:
   - Kill
   - BluePlayer
   - RedPlayer
+  - ColourWall
+  - Puddle
   layers:
   - Default
   - TransparentFX
