@@ -22,6 +22,7 @@ public class GameController : MonoBehaviour {
 		gameOver = false;
 //		restart = false;
 		gameOverText.text = "";
+        scoreText.text = "";
 		score = 0;
 		UpdateScore ();
 	}
