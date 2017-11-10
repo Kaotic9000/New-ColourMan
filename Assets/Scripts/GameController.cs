@@ -9,7 +9,6 @@ public class GameController : MonoBehaviour {
 	public Vector3 spawnValues;
 	public float spawnWait;
 	public float startWait;
-	//public prefab prefab;
 
 	public Text scoreText;
 	public Text gameOverText;
@@ -21,7 +20,6 @@ public class GameController : MonoBehaviour {
 	void Start ()
 	{
 		gameOver = false;
-//		restart = false;
 		gameOverText.text = "";
         scoreText.text = "";
 		score = 0;
@@ -45,21 +43,6 @@ public class GameController : MonoBehaviour {
                 //Application.LoadLevel (Application.loadedLevel);
 			}
 		}
-	}
-
-	void SpawnWaves ()
-	//IEnumerator
-	{
-
-		
-			//Vector3 spawnPosition = new Vector3 (spawnValues.x, spawnValues.y, spawnValues.z);
-			//Instantiate (prefab, spawnPosition, Quaternion.identity);
-			//if (gameOver)
-			//{
-			//	restartText.text = "Press 'R' for Restart";
-		    //	restart = true;
-			
-	//	}
 	}
 
 	public void AddScore (int newScoreValue)
