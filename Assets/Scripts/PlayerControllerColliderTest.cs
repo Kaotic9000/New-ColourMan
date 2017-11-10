@@ -86,7 +86,7 @@ public class PlayerControllerColliderTest: MonoBehaviour {
             Quaternion deathRotation = transform.rotation;
            Material corpsecolour = rend.sharedMaterial;
             Destroy(GameObject.Find("Ragdoll"));
-            GameObject corpse = Instantiate(corpseprefab, deathPosition, deathRotation);
+            Instantiate(corpseprefab, deathPosition, deathRotation);
             GameObject.Find("DeadCube").GetComponent<Renderer>().sharedMaterial = corpsecolour;
             //TODO: Skal laves på en lidt bedre måde
 

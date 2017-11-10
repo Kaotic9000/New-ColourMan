@@ -19,7 +19,6 @@ public class BallController : MonoBehaviour {
 	void Start(){
 		this.startX = transform.position.x;
 		this.startY = transform.position.y;
-		print ("" + startX + " " + startY);
 	}
 	// Update is called once per frame
 	void Update () {

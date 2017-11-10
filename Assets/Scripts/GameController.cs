@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour {
 
@@ -39,7 +40,9 @@ public class GameController : MonoBehaviour {
 		{
 			if (Input.GetKeyDown (KeyCode.R))
 			{
-				Application.LoadLevel (Application.loadedLevel);
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+				//Unity 5 og fremefter benytter ikke LoadLevel længere SceneManager benyttes i stedet.
+                //Application.LoadLevel (Application.loadedLevel);
 			}
 		}
 	}
