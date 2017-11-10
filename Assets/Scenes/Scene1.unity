@@ -547,7 +547,6 @@ MonoBehaviour:
   jumpSpeed: 10
   corpseprefab: {fileID: 1618662339243178, guid: 770715f032cdac5429a7c11c8244c470,
     type: 2}
-  isGreen: 0
   Green: {fileID: 2100000, guid: a81b624d8e7bf5a4091c3949b4c85746, type: 2}
   Blue: {fileID: 2100000, guid: b68b6fd067ee4b94a9ce2a3fcf3067b3, type: 2}
   Red: {fileID: 2100000, guid: 56722012e6319f54e92ba1a62ba7e643, type: 2}
@@ -632,6 +631,25 @@ Transform:
   m_PrefabParentObject: {fileID: 4317796735154296, guid: 4ed6aa93aaefa014cbd1cae979c84094,
     type: 2}
   m_PrefabInternal: {fileID: 1727607143}
+--- !u!1 &446430830 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100008, guid: d7152554fe90b98498b805ac47ee3ffa, type: 3}
+  m_PrefabInternal: {fileID: 1063516295}
+--- !u!54 &446430833
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 446430830}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 8
+  m_CollisionDetection: 0
 --- !u!1 &509353885 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100028, guid: d7152554fe90b98498b805ac47ee3ffa, type: 3}
