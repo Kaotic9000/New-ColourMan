@@ -26,14 +26,15 @@ public class PlayerController : MonoBehaviour {
     
 	// Update is called once per frame
 	void Update () {
-		if(Input.GetKey ("d"))
+
+        if (Input.GetKey ("d"))
 		{
-			RB.AddForce (Vector3.right * 50*speed);
+                RB.AddForce(Vector3.right * 50 * speed);
 			//transform.position = transform.position + Vector3.left*Speed ;
 		}
 		if(Input.GetKey ("a"))
 		{
-			RB.AddForce (Vector3.left * 50*speed);
+            RB.AddForce (Vector3.left * 50*speed);
 			//transform.position = transform.position + Vector3.right*Speed;
 		}
 		if (RB.velocity.magnitude > maxSpeed) {
