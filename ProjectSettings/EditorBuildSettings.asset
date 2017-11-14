@@ -4,18 +4,4 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-<<<<<<< HEAD
-  m_Scenes:
-  - enabled: 1
-<<<<<<< HEAD
-    path: Assets/Unity SamplesUI/Scenes/MainMenu.unity
-    guid: 412963112abd8d6418eb562a3eeb0722
-  - enabled: 1
-    path: Assets/Unity SamplesUI/Scenes/Scene1.unity
-=======
-    path: Assets/Scenes/Scene1.unity
->>>>>>> d22e2321b57e5e26b9c694d455d8a063f2b02d7a
-    guid: cd793a4df7b8b934cbf82376134c54f5
-=======
   m_Scenes: []
->>>>>>> parent of af2c019... main menu added
