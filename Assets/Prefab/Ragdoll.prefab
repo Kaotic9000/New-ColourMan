@@ -87,7 +87,11 @@ GameObject:
   - component: {fileID: 136653592308318966}
   m_Layer: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_Name: Ragdoll
+=======
+  m_Name: Ragdoll (1)
+>>>>>>> parent of af2c019... main menu added
   m_TagString: GreenPlayer
 =======
   m_Name: Knee_L
