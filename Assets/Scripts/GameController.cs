@@ -16,7 +16,7 @@ public class GameController : MonoBehaviour {
     public Text doorText;
 
     private int numberofstars;
-    private bool exitOpen=false;
+    private bool exitOpen;
     private bool gameOver;
 	private bool restart;
 	private int score;
@@ -25,7 +25,8 @@ public class GameController : MonoBehaviour {
 	{
         numberofstars = GameObject.FindGameObjectsWithTag("Star").Length;
         gameOver = false;
-		gameOverText.text = "";
+        exitOpen = false;
+        gameOverText.text = "";
         scoreText.text = "";
 		score = 0;
         doorText.text = "The door is shut";
@@ -72,7 +73,7 @@ public class GameController : MonoBehaviour {
 		gameOver = true;
 	}
 
-    public bool doorOpen()
+    public bool DoorOpen()
     {
         return exitOpen;
     }
@@ -99,6 +100,10 @@ public class GameController : MonoBehaviour {
         gameOverText.text = "TEST du er nået i mål";
         //vis mål tekst evt. gør point op (til total point)
         //fade til ny bane eller level select
+
+        //Lige nu vil der kun blive skiftet til level 2 uanset hvilke bane man gør færdig.
+        //Liste af scener, (switch case til skift af scene alt afhængig af hvilke bane?) så der skiftes korrekt.
+        SceneManager.LoadScene("Level002");
     }
 }
 

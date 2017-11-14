@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class LevelExitController : MonoBehaviour {
 
+    [SerializeField] private string loadLevel;
     Vector3 doorsStartPosition;
     bool exitOpen;
     public GameController controller;
@@ -12,11 +13,12 @@ public class LevelExitController : MonoBehaviour {
     // Use this for initialization
     void Start () {
         doorsStartPosition = leftDoor.transform.localPosition;
+        exitOpen = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        if (controller.doorOpen()&& !exitOpen) {
+        if (controller.DoorOpen() && !exitOpen) {
             exitOpen = true;
         }else if (!doorsOpen()&&exitOpen)
         {
