@@ -7,32 +7,39 @@ public class LevelExitController : MonoBehaviour {
     Vector3 doorsStartPosition;
     bool exitOpen;
     public GameController controller;
-	// Use this for initialization
-	void Start () {
+    public GameObject leftDoor;
+    public GameObject rightDoor;
+    // Use this for initialization
+    void Start () {
+        doorsStartPosition = leftDoor.transform.localPosition;
 	}
 	
 	// Update is called once per frame
 	void Update () {
         if (controller.doorOpen()&& !exitOpen) {
-            openDoors();
-        }
-        if (exitOpen)
+            exitOpen = true;
+        }else if (!doorsOpen())
         {
-
+            leftDoor.transform.localPosition.Set(leftDoor.transform.localPosition.x, leftDoor.transform.localPosition.y + 0.2f, leftDoor.transform.localPosition.z);
+            rightDoor.transform.localPosition.Set(rightDoor.transform.localPosition.x, rightDoor.transform.localPosition.y - 0.2f, rightDoor.transform.localPosition.z);
         }
 
 	}
 
-    void openDoors()
-    {
-        //skriv kode der flytter højre og venstre dør fra hinanden til et vist punkt (semi animation)
-
-    }
     private void OnTriggerEnter(Collider other)
     {
         if(exitOpen&& other.gameObject.name == "Middle_Spine")
         {
             controller.levelComplete();
         }
+    }
+
+    bool doorsOpen()
+    {
+        if (leftDoor.transform.localPosition.y == doorsStartPosition.y + 3)
+        {
+            return true;
+        }
+        else return false;
     }
 }

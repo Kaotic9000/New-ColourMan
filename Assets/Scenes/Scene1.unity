@@ -574,7 +574,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 387923827}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.25, y: -2.3, z: 0}
+  m_LocalPosition: {x: 0.25, y: -2.2, z: 0}
   m_LocalScale: {x: 1, y: 3.5, z: 7.5}
   m_Children: []
   m_Father: {fileID: 887845100}
@@ -1273,8 +1273,8 @@ MonoBehaviour:
   startWait: 0
   scoreText: {fileID: 1778170400}
   gameOverText: {fileID: 814384748}
-  countText: {fileID: 0}
-  doorText: {fileID: 0}
+  countText: {fileID: 1164575056}
+  doorText: {fileID: 1164575055}
 --- !u!1001 &860150154
 Prefab:
   m_ObjectHideFlags: 0
@@ -1374,7 +1374,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4975373532543620, guid: 9e3ffdaf91ba16b4cb8f15d5ef8f4f0a, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9e3ffdaf91ba16b4cb8f15d5ef8f4f0a, type: 2}
@@ -1590,7 +1590,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ba8caf0bd1b8bd479bf4fbf814af9c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 0}
+  controller: {fileID: 859951305}
+  leftDoor: {fileID: 1847720630}
+  rightDoor: {fileID: 387923827}
 --- !u!1 &1048106077
 GameObject:
   m_ObjectHideFlags: 0
@@ -2032,6 +2034,18 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 77c03efda107d14428def50bad108df8, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &1164575055 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114072424754706834, guid: 77c03efda107d14428def50bad108df8,
+    type: 2}
+  m_PrefabInternal: {fileID: 1164575054}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!114 &1164575056 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114039877749925234, guid: 77c03efda107d14428def50bad108df8,
+    type: 2}
+  m_PrefabInternal: {fileID: 1164575054}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &1222638689
 GameObject:
   m_ObjectHideFlags: 0
@@ -2819,7 +2833,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1847720630}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.25, y: 2.3, z: 0}
+  m_LocalPosition: {x: 0.25, y: 2.2, z: 0}
   m_LocalScale: {x: 1, y: 3.5, z: 7.5}
   m_Children: []
   m_Father: {fileID: 887845100}
