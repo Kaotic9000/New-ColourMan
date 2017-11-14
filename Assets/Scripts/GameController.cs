@@ -28,16 +28,16 @@ public class GameController : MonoBehaviour {
 		gameOverText.text = "";
         scoreText.text = "";
 		score = 0;
+        doorText.text = "The door is shut";
         updateText();
         UpdateScore ();
 	}
 
     void Update()
     {
-        score = 0;
         UpdateScore();
         updateText();
-        doorText.text = "The door is shut";
+     
 
         if (!gameOver) { 
         if (GameObject.FindGameObjectsWithTag("Player").Length < 1) GameOver();
@@ -95,6 +95,8 @@ public class GameController : MonoBehaviour {
 
     public void levelComplete()
     {
+
+        gameOverText.text = "TEST du er nået i mål";
         //vis mål tekst evt. gør point op (til total point)
         //fade til ny bane eller level select
     }

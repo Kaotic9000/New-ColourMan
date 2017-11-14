@@ -18,10 +18,10 @@ public class LevelExitController : MonoBehaviour {
 	void Update () {
         if (controller.doorOpen()&& !exitOpen) {
             exitOpen = true;
-        }else if (!doorsOpen())
+        }else if (!doorsOpen()&&exitOpen)
         {
-            leftDoor.transform.localPosition.Set(leftDoor.transform.localPosition.x, leftDoor.transform.localPosition.y + 0.2f, leftDoor.transform.localPosition.z);
-            rightDoor.transform.localPosition.Set(rightDoor.transform.localPosition.x, rightDoor.transform.localPosition.y - 0.2f, rightDoor.transform.localPosition.z);
+            leftDoor.transform.Translate(0, 0.2f, 0);
+            rightDoor.transform.Translate(0, -0.2f, 0);
         }
 
 	}
@@ -36,7 +36,7 @@ public class LevelExitController : MonoBehaviour {
 
     bool doorsOpen()
     {
-        if (leftDoor.transform.localPosition.y == doorsStartPosition.y + 3)
+        if (leftDoor.transform.localPosition.y >= doorsStartPosition.y + 3)
         {
             return true;
         }
