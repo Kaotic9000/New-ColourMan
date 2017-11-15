@@ -23,7 +23,7 @@ public class BallController : MonoBehaviour {
 	}
 	// Update is called once per frame
 	void Update () {
-		if (count > 100 && force > 2) {
+		if (count > 100 && force > 3) {
 			force = force - 0.01f;
 			//print ("Force: "+force);
 		}
