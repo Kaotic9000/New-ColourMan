@@ -86,8 +86,13 @@ GameObject:
   - component: {fileID: 144960232202594582}
   - component: {fileID: 136653592308318966}
   m_Layer: 0
+<<<<<<< HEAD
+  m_Name: Ragdoll
+  m_TagString: GreenPlayer
+=======
   m_Name: Knee_L
   m_TagString: Untagged
+>>>>>>> d22e2321b57e5e26b9c694d455d8a063f2b02d7a
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -988,11 +993,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 063ef3df4de98b34f9cfa01bc3b6544d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RB: {fileID: 54860514290900328}
   maxSpeed: 9
   speed: 8
   jumpSpeed: 10
-  prefab: {fileID: 1154358528033696, guid: 649766389d288a441bf81ca0bc62a5b1, type: 2}
+  corpseprefab: {fileID: 0}
   isGreen: 0
   Green: {fileID: 2100000, guid: a81b624d8e7bf5a4091c3949b4c85746, type: 2}
   Blue: {fileID: 2100000, guid: b68b6fd067ee4b94a9ce2a3fcf3067b3, type: 2}

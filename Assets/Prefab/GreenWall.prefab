@@ -22,7 +22,6 @@ GameObject:
   - component: {fileID: 33423217844501524}
   - component: {fileID: 65294090751375510}
   - component: {fileID: 23794148869833594}
-  - component: {fileID: 114837668270873116}
   m_Layer: 0
   m_Name: GreenWall
   m_TagString: Green wall
@@ -94,14 +93,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0530407, y: 1, z: 1.7002984}
   m_Center: {x: 0.026520133, y: 0, z: 0.14985079}
---- !u!114 &114837668270873116
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1612199735086766}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d56068f9040cdcb498c890735b00355b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

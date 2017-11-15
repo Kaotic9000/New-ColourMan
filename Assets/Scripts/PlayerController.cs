@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
-	public Rigidbody RB;
+
+	private Rigidbody RB;
 	public float maxSpeed = 200;
 	public float speed = 10;
 	public float jumpSpeed = 10;
-	public GameObject prefab;
+	public GameObject corpseprefab;
 
-
-    public bool isGreen = false;
-    
     public Material Green;
     public Material Blue;
     public Material Red;
@@ -28,14 +26,15 @@ public class PlayerController : MonoBehaviour {
     
 	// Update is called once per frame
 	void Update () {
-		if(Input.GetKey ("d"))
+
+        if (Input.GetKey ("d"))
 		{
-			RB.AddForce (Vector3.right * 50*speed);
+                RB.AddForce(Vector3.right * 50 * speed);
 			//transform.position = transform.position + Vector3.left*Speed ;
 		}
 		if(Input.GetKey ("a"))
 		{
-			RB.AddForce (Vector3.left * 50*speed);
+            RB.AddForce (Vector3.left * 50*speed);
 			//transform.position = transform.position + Vector3.right*Speed;
 		}
 		if (RB.velocity.magnitude > maxSpeed) {
@@ -77,8 +76,14 @@ public class PlayerController : MonoBehaviour {
 		//spawns a ragdoll and removes the player object to simulate death
         if (other.gameObject.CompareTag("Kill"))
         {
+           Vector3 deathPosition= transform.position;
+            Quaternion deathRotation = transform.rotation;
+            Material corpsecolour = GameObject.Find("Cube").GetComponent<Renderer>().material;
+            Destroy(GameObject.Find("Ragdoll"));
+                Instantiate(corpseprefab, deathPosition,deathRotation);
+            GameObject.Find("DeadCube").GetComponent<Renderer>().sharedMaterial = corpsecolour;
 
-			Destroy(GameObject.Find("Ragdoll"));
+            
 			//TODO: Skal laves på en lidt bedre måde
 
         }
