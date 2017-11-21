@@ -18,6 +18,7 @@ TagManager:
   - RedPlayer
   - ColourWall
   - Puddle
+  - Wall
   layers:
   - Default
   - TransparentFX

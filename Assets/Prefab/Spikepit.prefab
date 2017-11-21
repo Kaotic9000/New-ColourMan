@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 23629908671771904}
   m_Layer: 0
   m_Name: rwall
-  m_TagString: floor
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 23581921625734644}
   m_Layer: 0
   m_Name: lwall
-  m_TagString: floor
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
