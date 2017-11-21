@@ -97,7 +97,7 @@ public class GameController : MonoBehaviour {
     public void levelComplete()
     {
 
-        gameOverText.text = "TEST du er nået i mål";
+        //gameOverText.text = "TEST du er nået i mål";
         //vis mål tekst evt. gør point op (til total point)
         //fade til ny bane eller level select
 
