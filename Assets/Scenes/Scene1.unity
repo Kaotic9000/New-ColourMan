@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -113,6 +113,47 @@ Transform:
   m_PrefabParentObject: {fileID: 4476942508251998, guid: 271f66e47d0338a499e22a019ccc57eb,
     type: 2}
   m_PrefabInternal: {fileID: 189529440}
+--- !u!1 &50905158
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 50905159}
+  - component: {fileID: 50905160}
+  m_Layer: 0
+  m_Name: GroundPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &50905159
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 50905158}
+  m_LocalRotation: {x: 0.018977335, y: 0.0175604, z: -0.7082861, w: -0.70545185}
+  m_LocalPosition: {x: 4.7, y: -0.63, z: 1.46}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 360534458}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &50905160
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 50905158}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.1, y: 0.1, z: 0.1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &66251747
 Prefab:
   m_ObjectHideFlags: 0
@@ -565,6 +606,10 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 6.1244826, y: 4, z: 2.005853}
   m_Center: {x: 1.7540886, y: -0.00000024198258, z: 0.38875514}
+--- !u!4 &360534458 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 400036, guid: d7152554fe90b98498b805ac47ee3ffa, type: 3}
+  m_PrefabInternal: {fileID: 1063516295}
 --- !u!136 &360534459
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -591,12 +636,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxSpeed: 9
   speed: 8
-  jumpSpeed: 10
+  jumpForce: 10
   corpseprefab: {fileID: 1618662339243178, guid: 770715f032cdac5429a7c11c8244c470,
     type: 2}
   Green: {fileID: 2100000, guid: a81b624d8e7bf5a4091c3949b4c85746, type: 2}
   Blue: {fileID: 2100000, guid: b68b6fd067ee4b94a9ce2a3fcf3067b3, type: 2}
   Red: {fileID: 2100000, guid: 56722012e6319f54e92ba1a62ba7e643, type: 2}
+  groundPoints:
+  - {fileID: 50905158}
+  - {fileID: 1532606004}
+  - {fileID: 2027365474}
+  groundRadius: 2
 --- !u!1 &401142638 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100034, guid: d7152554fe90b98498b805ac47ee3ffa, type: 3}
@@ -2036,6 +2086,47 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6ed4182a75d1b1442810009ffe6e824d, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1532606004
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1532606005}
+  - component: {fileID: 1532606006}
+  m_Layer: 0
+  m_Name: GroundPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1532606005
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1532606004}
+  m_LocalRotation: {x: 0.018977335, y: 0.0175604, z: -0.7082861, w: -0.70545185}
+  m_LocalPosition: {x: 4.76, y: -0.63, z: 0.67}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 360534458}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1532606006
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1532606004}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.1, y: 0.1, z: 0.1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1559984717
 Prefab:
   m_ObjectHideFlags: 0
@@ -2797,6 +2888,47 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &2027365474
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2027365475}
+  - component: {fileID: 2027365476}
+  m_Layer: 0
+  m_Name: GroundPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2027365475
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2027365474}
+  m_LocalRotation: {x: 0.018977335, y: 0.0175604, z: -0.7082861, w: -0.70545185}
+  m_LocalPosition: {x: 4.82, y: -0.64, z: 0.06}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 360534458}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &2027365476
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2027365474}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.1, y: 0.1, z: 0.1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2029427440
 GameObject:
