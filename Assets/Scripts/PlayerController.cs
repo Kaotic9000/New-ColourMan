@@ -49,7 +49,12 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
-	void OnTriggerEnter(Collider other)
+    void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("floor")) isGrounded = false;
+    }
+
+        void OnTriggerEnter(Collider other)
 	{
 		//removes the star when hit by the player
 		if (other.gameObject.CompareTag ("Star")) {
