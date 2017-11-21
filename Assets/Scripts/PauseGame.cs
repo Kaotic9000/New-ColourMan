@@ -53,6 +53,7 @@ public class PauseGame : MonoBehaviour {
     public void Exit()
     {
         SceneManager.LoadScene("MainMenu");
+        Destroy(GameObject.FindGameObjectWithTag("Music"));
         canvas.gameObject.SetActive(false);
         Time.timeScale = 1;
     }
