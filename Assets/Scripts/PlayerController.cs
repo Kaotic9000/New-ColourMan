@@ -49,6 +49,10 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.CompareTag("floor")) isGrounded = true;
+    }
     void OnTriggerExit(Collider other)
     {
         if (other.gameObject.CompareTag("floor")) isGrounded = false;
@@ -93,9 +97,9 @@ public class PlayerController : MonoBehaviour {
 
         }
 
-        if (other.gameObject.CompareTag("floor")){
-			isGrounded = true;
-		}
+   //     if (other.gameObject.CompareTag("floor")){
+	//		isGrounded = true;
+	//	}
 	}
 
 	private void setPlayerColour(Material material, string playerTag){
