@@ -36,12 +36,12 @@ public class nyplayercontroller : MonoBehaviour {
 		float horizontal = Input.GetAxis ("Horizontal");
 
 		if(Input.GetKeyDown(KeyCode.Space)){
+			isGrounded = false;
 			jump = true;
 		}
 
 
 
-		isGrounded = IsGrounded ();
 
 		handleMovement (horizontal);
 		/*
@@ -67,7 +67,7 @@ public class nyplayercontroller : MonoBehaviour {
 		}
 		*/
 	}
-
+	/*
 	private bool IsGrounded(){
 		if (RB.velocity.y <= 0) {
 			if () {
@@ -76,7 +76,7 @@ public class nyplayercontroller : MonoBehaviour {
 		}
 		return false;
 	}
-
+*/
 	private void handleMovement(float horizontal){
 
 		if(isGrounded && jump){
@@ -98,6 +98,9 @@ public class nyplayercontroller : MonoBehaviour {
 */
 	void OnTriggerEnter(Collider other)
 	{
+		if(other.gameObject.CompareTag("floor")){
+			isGrounded = true;
+		}
 		//removes the star when hit by the player
 		if (other.gameObject.CompareTag ("Star")) {
 			other.gameObject.SetActive (false);

@@ -6,9 +6,9 @@ public class PlayerController : MonoBehaviour {
 
 
 	private Rigidbody RB;
-	public float maxSpeed = 200;
-	public float speed = 10;
-	public float jumpSpeed = 10;
+	public float maxSpeed = 9;
+	public float speed = 8;
+	public float jumpForce = 30;
 	public GameObject corpseprefab;
 
     public Material Green;
@@ -16,37 +16,37 @@ public class PlayerController : MonoBehaviour {
     public Material Red;
 
 
-    private Vector3 jump;
+    private bool jump;
 	private bool isGrounded;
 	// Use this for initialization
 	void Start () {
 		RB = GetComponent<Rigidbody> ();
-		jump = new Vector3(0.0f, 25.0f+jumpSpeed, 0.0f);
 	}
     
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 
-        if (Input.GetKey ("d"))
-		{
-                RB.AddForce(Vector3.right * 50 * speed);
-			//transform.position = transform.position + Vector3.left*Speed ;
-		}
-		if(Input.GetKey ("a"))
-		{
-            RB.AddForce (Vector3.left * 50*speed);
-			//transform.position = transform.position + Vector3.right*Speed;
+		float horizontal = Input.GetAxis ("Horizontal");
+
+		if(Input.GetKeyDown(KeyCode.Space)){
+			isGrounded = false;
+			jump = true;
 		}
 		if (RB.velocity.magnitude > maxSpeed) {
 			RB.velocity = RB.velocity.normalized * maxSpeed;
 		}
-		if (Input.GetKey ("space")){
-			//RB.AddForce (Vector3.up * jumpSpeed);
-			if (isGrounded) {
-				RB.AddForce (jump * jumpSpeed, ForceMode.Impulse);
-			}
+		handleMovement (horizontal);
+	}
+
+	private void handleMovement(float horizontal){
+
+		if(isGrounded && jump){
 			isGrounded = false;
+			RB.AddForce (new Vector3 (0,jumpForce,0)*speed,ForceMode.Impulse);
+			jump = false;
 		}
+
+		RB.velocity = new Vector3 (horizontal*speed, RB.velocity.y, RB.velocity.z); //x = -1, y = 0;
 	}
 
     private void OnTriggerStay(Collider other)
