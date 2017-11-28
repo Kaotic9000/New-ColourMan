@@ -3947,7 +3947,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1607410702}
         m_MethodName: Pause
         m_Mode: 1
         m_Arguments:
@@ -9161,7 +9161,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1607410702}
         m_MethodName: Exit
         m_Mode: 1
         m_Arguments:
@@ -9239,7 +9239,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxSpeed: 9
   speed: 8
-  jumpSpeed: 10
+  jumpForce: 30
   corpseprefab: {fileID: 1618662339243178, guid: 770715f032cdac5429a7c11c8244c470,
     type: 2}
   Green: {fileID: 2100000, guid: a81b624d8e7bf5a4091c3949b4c85746, type: 2}
@@ -10134,8 +10134,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ad9cd232be24e245901e515e4d20c9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 0}
-  pauseMenu: {fileID: 0}
+  canvas: {fileID: 982906662}
+  pauseMenu: {fileID: 1919265680}
 --- !u!4 &1607410703
 Transform:
   m_ObjectHideFlags: 0
@@ -10969,7 +10969,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1607410702}
         m_MethodName: Restart
         m_Mode: 1
         m_Arguments:
