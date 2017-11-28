@@ -5,11 +5,11 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
 
 
-	private Rigidbody RB;
-	public float maxSpeed = 9;
-	public float speed = 8;
-	public float jumpForce = 30;
-	public GameObject corpseprefab;
+    private Rigidbody RB;
+    public float maxSpeed = 9;
+    public float speed = 8;
+    public float jumpForce = 30;
+    public GameObject corpseprefab;
 
     public Material Green;
     public Material Blue;
@@ -17,48 +17,80 @@ public class PlayerController : MonoBehaviour {
 
 
     private bool jump;
-	private bool isGrounded;
-	// Use this for initialization
-	void Start () {
-		RB = GetComponent<Rigidbody> ();
-	}
-    
-	// Update is called once per frame
-	void FixedUpdate () {
+    private bool isGrounded;
+    // Use this for initialization
+    void Start() {
+        RB = GetComponent<Rigidbody>();
+    }
 
-		float horizontal = Input.GetAxis ("Horizontal");
+    // Update is called once per frame
+    void FixedUpdate() {
 
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        {
+            if (isGrounded)
+            {
+                RB.AddForce(new Vector3(0, jumpForce, 0) * speed, ForceMode.Impulse);
+                isGrounded = false;
+            }
+
+        }
+
+        float horizontal = Input.GetAxis("Horizontal");
+
+        /*
 		if(Input.GetKeyDown(KeyCode.Space)){
 			isGrounded = false;
 			jump = true;
 		}
-		if (RB.velocity.magnitude > maxSpeed) {
-			RB.velocity = RB.velocity.normalized * maxSpeed;
-		}
-		handleMovement (horizontal);
-	}
+        */
+        if (RB.velocity.magnitude > maxSpeed) {
+            RB.velocity = RB.velocity.normalized * maxSpeed;
+        }
 
-	private void handleMovement(float horizontal){
+        handleMovement(horizontal);
 
+    }
+
+    private void handleMovement(float horizontal) {
+
+        /*
 		if(isGrounded && jump){
 			isGrounded = false;
 			RB.AddForce (new Vector3 (0,jumpForce,0)*speed,ForceMode.Impulse);
 			jump = false;
 		}
+        */
 
-		RB.velocity = new Vector3 (horizontal*speed, RB.velocity.y, RB.velocity.z); //x = -1, y = 0;
-	}
+        RB.velocity = new Vector3(horizontal * speed, RB.velocity.y, RB.velocity.z); //x = -1, y = 0;
+    }
 
+    
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.CompareTag("floor")) isGrounded = true;
-    }
-    void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.CompareTag("floor")) isGrounded = false;
+        if (other.gameObject.CompareTag("floor"))
+        {
+            isGrounded = true;
+        }
     }
 
-        void OnTriggerEnter(Collider other)
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("floor"))
+        {
+            StartCoroutine(Wait());
+            isGrounded = false;
+        }
+    }
+
+    IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(1);
+    }
+    
+
+    void OnTriggerEnter(Collider other)
 	{
 		//removes the star when hit by the player
 		if (other.gameObject.CompareTag ("Star")) {

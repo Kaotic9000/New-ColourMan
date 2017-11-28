@@ -32,7 +32,7 @@ public class LevelExitController : MonoBehaviour {
     {
         if(exitOpen&& other.gameObject.name == "Middle_Spine")
         {
-            controller.levelComplete();
+            controller.levelComplete(loadLevel);
         }
     }
 

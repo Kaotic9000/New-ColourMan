@@ -94,7 +94,7 @@ public class GameController : MonoBehaviour {
         return GameObject.FindGameObjectsWithTag("Star").Length;
     }
 
-    public void levelComplete()
+    public void levelComplete(string level)
     {
 
         //gameOverText.text = "TEST du er nået i mål";
@@ -103,7 +103,21 @@ public class GameController : MonoBehaviour {
 
         //Lige nu vil der kun blive skiftet til level 2 uanset hvilke bane man gør færdig.
         //Liste af scener, (switch case til skift af scene alt afhængig af hvilke bane?) så der skiftes korrekt.
-        SceneManager.LoadScene("Level002");
+        switch (level)
+        {
+            case "1":
+                SceneManager.LoadScene("Level001");
+                break;
+            case "2":
+                SceneManager.LoadScene("Level002");
+                break;
+            case "3":
+                SceneManager.LoadScene("Level002");
+                break;
+            default:
+                SceneManager.LoadScene("Scene1");
+                break;
+        }
     }
 }
 
