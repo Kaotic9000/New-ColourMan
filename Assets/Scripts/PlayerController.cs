@@ -63,7 +63,7 @@ public class PlayerController : MonoBehaviour {
 		//removes the star when hit by the player
 		if (other.gameObject.CompareTag ("Star")) {
 			other.gameObject.SetActive (false);
-		}
+		}other.
 		//turns the player green and green walls trigers active
         if (other.gameObject.CompareTag("Green puddle"))
         {
