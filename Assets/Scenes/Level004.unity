@@ -306,6 +306,12 @@ Prefab:
       propertyPath: m_Name
       value: floor 1 (Test)
       objectReference: {fileID: 0}
+    - target: {fileID: 65560050881736436, guid: 6ed4182a75d1b1442810009ffe6e824d,
+        type: 2}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 88de08d7273410e478ab7413f4b5e65b,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6ed4182a75d1b1442810009ffe6e824d, type: 2}
   m_IsPrefabParent: 0
@@ -1182,7 +1188,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxSpeed: 9
   speed: 8
-  jumpSpeed: 10
+  jumpForce: 30
   corpseprefab: {fileID: 1618662339243178, guid: 770715f032cdac5429a7c11c8244c470,
     type: 2}
   Green: {fileID: 2100000, guid: a81b624d8e7bf5a4091c3949b4c85746, type: 2}
@@ -1599,7 +1605,7 @@ BoxCollider:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 206711035}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 88de08d7273410e478ab7413f4b5e65b, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -1686,7 +1692,7 @@ BoxCollider:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 230852705}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 88de08d7273410e478ab7413f4b5e65b, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -1971,7 +1977,7 @@ BoxCollider:
     type: 2}
   m_PrefabInternal: {fileID: 76587056}
   m_GameObject: {fileID: 493373649}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 88de08d7273410e478ab7413f4b5e65b, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -2390,7 +2396,7 @@ BoxCollider:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 996750267}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 88de08d7273410e478ab7413f4b5e65b, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -2837,7 +2843,7 @@ BoxCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1687734983}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 88de08d7273410e478ab7413f4b5e65b, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
